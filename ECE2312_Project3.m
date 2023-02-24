@@ -1,18 +1,7 @@
 clc
 clear
 
-devices = audiodevinfo();
-inputID = devices.input(1);
-outputID = devices.output(1);
-
 fs = 48000;
-nBits = 8;
-nChannels = 1;
-duration = 5;
-
-window = hamming(512);
-N.overlap = 256;
-N.fft = 1024;
 
 % Project 3
 
