@@ -1,6 +1,7 @@
 function [] = plotSpec_subplot(data1, data2, name1, name2, fs)
 
 figure;
+window = hamming(512);
 N.overlap = 256;
 N.fft = 1024;
 subplot(1,2,1)
