@@ -47,3 +47,9 @@ xH2 = downsample(high_pass2,2);
 
 plotSpec_subplot(low_pass2,high_pass2, 'Lowpass 2', 'Highpass 2', fs);
 plotSpec_subplot(xL2,xH2, 'Downsampled Lowpass 2', ' Downsampled Highpass 2', fs);
+
+% Reassembling the Signal
+reconstructedSignal = low_pass + high_pass + low_pass2 + high_pass2;
+plotSpec(reconstructedSignal, fs, 'Reconstructed');
+sound(reconstructedSignal,fs/2)
+WAVsave('team[2]-synthesized.wav', reconstructedSignal, fs);
