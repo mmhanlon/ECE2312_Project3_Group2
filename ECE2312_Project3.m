@@ -48,21 +48,21 @@ xH2 = downsample(high_pass2,2);
 plotSpec_subplot(low_pass2,high_pass2, 'Lowpass 2', 'Highpass 2', fs);
 plotSpec_subplot(xL2,xH2, 'Downsampled Lowpass 2', ' Downsampled Highpass 2', fs);
 
-% Reassembling the Signal
-reconstructedSignal = low_pass + high_pass + low_pass2 + high_pass2;
+% % Reassembling the Signal
+% reconstructedSignal = low_pass + high_pass + low_pass2 + high_pass2;
 
-%HP1_up = upsample(high_pass,2);
-%HP1 = filter(hpf, 1, HP1_up);
-%LP1_up = upsample(low_pass,2);
-%LP1 = filter(lpf, 1, LP1_up);
+HP1_up = upsample(high_pass,2);
+HP1 = filter(hpf, 1, HP1_up);
+LP1_up = upsample(low_pass,2);
+LP1 = filter(lpf, 1, LP1_up);
 
-%HP2_up = upsample(high_pass2,2);
-%HP2 = filter(hpf, 1, HP2_up);
-%LP2_up = upsample(low_pass2,2);
-%LP2 = filter(lpf, 1, LP2_up);
+HP2_up = upsample(high_pass2,2);
+HP2 = filter(hpf, 1, HP2_up);
+LP2_up = upsample(low_pass2,2);
+LP2 = filter(lpf, 1, LP2_up);
 
-%reconstructedSignal = LP1 + HP1 + LP2 + HP2;
+reconstructedSignal = LP1 + HP1 + LP2 + HP2;
 
 plotSpec(reconstructedSignal, fs, 'Reconstructed');
-sound(reconstructedSignal,fs/2)
+sound(reconstructedSignal,fs)
 WAVsave('team[2]-synthesized.wav', reconstructedSignal, fs);
